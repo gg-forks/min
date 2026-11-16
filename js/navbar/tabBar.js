@@ -111,6 +111,9 @@ const tabBar = {
     })
 
     tabEl.addEventListener('wheel', function (e) {
+      if (settings.get('closeTabsOnScroll') === false) {
+        return
+      }
       if (e.altKey || e.ctrlKey || e.metaKey || e.shiftKey) {
         // https://github.com/minbrowser/min/issues/698
         return

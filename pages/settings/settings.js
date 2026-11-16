@@ -8,6 +8,7 @@ var userscriptsCheckbox = document.getElementById('checkbox-userscripts')
 var userscriptsShowDirectorySection = document.getElementById('userscripts-show-directory')
 var separateTitlebarCheckbox = document.getElementById('checkbox-separate-titlebar')
 var openTabsInForegroundCheckbox = document.getElementById('checkbox-open-tabs-in-foreground')
+var closeTabsOnScrollCheckbox = document.getElementById('checkbox-close-tabs-on-scroll')
 var autoPlayCheckbox = document.getElementById('checkbox-enable-autoplay')
 var userAgentCheckbox = document.getElementById('checkbox-user-agent')
 var userAgentInput = document.getElementById('input-user-agent')
@@ -326,6 +327,16 @@ settings.get('openTabsInForeground', function (value) {
 
 openTabsInForegroundCheckbox.addEventListener('change', function (e) {
   settings.set('openTabsInForeground', this.checked)
+})
+
+/* close tabs on scroll setting */
+
+settings.get('closeTabsOnScroll', function (value) {
+  closeTabsOnScrollCheckbox.checked = value !== false
+})
+
+closeTabsOnScrollCheckbox.addEventListener('change', function () {
+  settings.set('closeTabsOnScroll', this.checked)
 })
 
 /* media autoplay setting */
